@@ -1,0 +1,31 @@
+{
+    "expo": {
+      "name": "ListenToMe",
+      "slug": "listentome",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "plugins": [
+        "@react-native-firebase/app",
+        "@react-native-firebase/auth"
+      ],
+      "android": {
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#FFFFFF"
+        },
+        "package": "com.yourname.listentome"
+      },
+      "ios": {
+        "bundleIdentifier": "com.yourname.listentome"
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      }
+    }
+  }
