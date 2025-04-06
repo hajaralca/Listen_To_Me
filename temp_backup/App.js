@@ -10,6 +10,7 @@ import AuthGate from './components/AuthGate';
 import BookList from './components/BookList';
 import PlayerScreen from './screens/Listener/PlayerScreen';
 import RecordScreen from './screens/Volunteer/RecordScreen';
+import * as Font from 'expo-font';
 
 // Test Firebase Auth
 useEffect(() => {
@@ -48,3 +49,12 @@ export default function App() {
     </NavigationContainer>
   );
 }
+useEffect(() => {
+  const loadFonts = async () => {
+    await Font.loadAsync({
+      'amiri-regular': require('./assets/fonts/Amiri-Regular.ttf'),
+      'amiri-bold': require('./assets/fonts/Amiri-Bold.ttf'),
+    });
+  };
+  loadFonts();
+}, []);
