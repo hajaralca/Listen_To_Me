@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "820908807670",
+    "project_id": "listentome-1de0d",
+    "storage_bucket": "listentome-1de0d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820908807670:android:9bed2ba24b5eb3e005e3d7",
+        "android_client_info": {
+          "package_name": "com.sawoty.listentome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDFemfqZDsR5xdHxGZviudWGvg0yfHJoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

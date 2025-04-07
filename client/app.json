@@ -4,35 +4,48 @@
     "slug": "listentome",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "plugins": [
-      "@react-native-firebase/app",
+      [
+        "@react-native-firebase/app",
+        {
+        "androidPackageId": "com.sawoty.listentome",
+        "iosBundleId": "com.sawoty.listentome"
+        }
+      ],
       "@react-native-firebase/auth"
     ],
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yourname.listentome"
+      "package": "com.sawoty.listentome",
+      "googleServicesFile": "./google-services.json" 
     },
     "ios": {
-      "bundleIdentifier": "com.yourname.listentome",
+      "bundleIdentifier": "com.sawoty.listentome",
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/images/favicon.png"
     },
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "93d265ae-572b-4dcb-b050-7827add7dcd2"
+      }
+    },
+    "owner": "hajaralca"
   }
 }

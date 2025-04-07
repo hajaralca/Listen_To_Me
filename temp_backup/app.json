@@ -13,8 +13,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins": [
-      "@react-native-firebase/app",
+    "plugins": 
+    [
+      [
+        "@react-native-firebase/app",
+        {
+        "androidPackageId": "com.sawoty.listentome",
+        "iosBundleId": "com.sawoty.listentome"
+        }
+      ],
       "@react-native-firebase/auth"
     ],
     "android": {
@@ -22,10 +29,10 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yourname.listentome"
+      "package": "com.sawoty.listentome"
     },
     "ios": {
-      "bundleIdentifier": "com.yourname.listentome",
+      "bundleIdentifier": "com.sawoty.listentome",
       "supportsTablet": true
     },
     "web": {
