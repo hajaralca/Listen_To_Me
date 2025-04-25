@@ -1,15 +1,35 @@
 {
-    "build": {
-      "development": {
-        "developmentClient": true,
-        "distribution": "internal"
-      },
-      "preview": {
-        "distribution": "internal"
-      },
-      "production": {}
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uprzcocndowhncpvmdbi.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwcnpjb2NuZG93aG5jcHZtZGJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI5MTc1NzgsImV4cCI6MjA1ODQ5MzU3OH0.F4P1UQlxeN5dK4_RSwwLn3_B7_sCvNaT7ECYsofZaCE",
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyBexc2p_5GK-aXHK4tRIB2NLhcrY8c8j-0",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "listentome-1de0d.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "listentome-1de0d",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "listentome-1de0d.firebasestorage.app",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "820908807670",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:820908807670:web:7048992aeab0939905e3d7",
+        "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-YZDDPC2MXN"
+      }
     },
-    "cli": {
-      "version": ">= 6.0.0"
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uprzcocndowhncpvmdbi.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwcnpjb2NuZG93aG5jcHZtZGJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI5MTc1NzgsImV4cCI6MjA1ODQ5MzU3OH0.F4P1UQlxeN5dK4_RSwwLn3_B7_sCvNaT7ECYsofZaCE"
+      }
+    },
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uprzcocndowhncpvmdbi.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwcnpjb2NuZG93aG5jcHZtZGJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI5MTc1NzgsImV4cCI6MjA1ODQ5MzU3OH0.F4P1UQlxeN5dK4_RSwwLn3_B7_sCvNaT7ECYsofZaCE"
+      }
     }
+  },
+  "cli": {
+    "version": ">= 6.0.0"
   }
+}

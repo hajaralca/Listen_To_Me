@@ -3,20 +3,26 @@ import { View, Button, Alert } from 'react-native';
 import { Audio } from 'expo-av';
 import { supabase } from '../../lib/supabase';
 import { uploadAudio } from '../../lib/firebase';
+import { useLocalSearchParams } from 'expo-router'; 
 
-export default function RecordScreen({ route }) {
-  const [recording, setRecording] = useState();
-  const { bookId, chapterNumber } = route.params;
+export default function RecordScreen() {
+  const [recording, setRecording] = useState(null);
+  const { bookId, chapterNumber } = useLocalSearchParams(); 
 
   const startRecording = async () => {
     try {
-      await Audio.requestPermissionsAsync();
+      const permission = await Audio.requestPermissionsAsync();
+      if (permission.status !== 'granted') {
+        Alert.alert('Permission denied', 'Audio recording permission is required.');
+        return;
+      }
       const { recording } = await Audio.Recording.createAsync(
         Audio.RecordingOptionsPresets.HIGH_QUALITY
       );
       setRecording(recording);
     } catch (err) {
       Alert.alert('Error', 'Failed to start recording');
+      console.error('Start recording error:', err);
     }
   };
 
@@ -24,25 +30,28 @@ export default function RecordScreen({ route }) {
     try {
       await recording.stopAndUnloadAsync();
       const uri = recording.getURI();
-      
-      const audioUrl = await uploadAudio(
-        uri,
-        `books/${bookId}/chapter_${chapterNumber}.mp3`
-      );
 
-      await supabase.from('chapters').insert([
+      const audioUrl = await uploadAudio(uri, `books/${bookId}/chapter_${chapterNumber}.mp3`);
+
+      const { error } = await supabase.from('chapters').insert([
         {
           book_id: bookId,
-          chapter_number: chapterNumber,
+          chapter_number: parseInt(chapterNumber), // ✅ ensure it's a number
           audio_url: audioUrl,
-          narrator_id: supabase.auth.user().id,
-          status: 'pending'
-        }
+          narrator_id: supabase.auth.getUser?.()?.id || null,
+          status: 'pending',
+        },
       ]);
 
-      Alert.alert('Success', 'Chapter uploaded for review');
+      if (error) {
+        Alert.alert('Error', 'Database insertion failed');
+        console.error('Insert error:', error);
+      } else {
+        Alert.alert('Success', 'Chapter uploaded for review');
+      }
     } catch (err) {
       Alert.alert('Error', 'Upload failed');
+      console.error('Stop recording error:', err);
     }
   };
 

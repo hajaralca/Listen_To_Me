@@ -28,7 +28,7 @@ export default function UploadScreen() {
 
     navigation.navigate('RecordScreen', { 
       bookId,
-      chapterNumber: parseInt(chapterNumber),
+      chapterNumber: parseInt(chapterNumber, 10),
       bookTitle: book.title
     });
   };
