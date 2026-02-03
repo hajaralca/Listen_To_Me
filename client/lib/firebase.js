@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getAuth } from 'firebase/auth';
+
 
 const firebaseConfig = {
   apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
-export const auth = getAuth(app);
+
 
 /** Uploads audio from a local URI to Firebase Storage and returns the public download URL. */
 export const uploadAudio = async (uri, path) => {
