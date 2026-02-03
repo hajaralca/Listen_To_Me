@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getStorage, ref, uploadBytes } from 'firebase/storage';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -16,8 +16,10 @@ const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 export const auth = getAuth(app);
 
+/** Uploads audio from a local URI to Firebase Storage and returns the public download URL. */
 export const uploadAudio = async (uri, path) => {
   const blob = await (await fetch(uri)).blob();
   const storageRef = ref(storage, path);
   await uploadBytes(storageRef, blob);
+  return getDownloadURL(storageRef);
 };

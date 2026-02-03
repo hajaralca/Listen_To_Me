@@ -15,11 +15,12 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
     "hooks/**/*.ts",
     "lib/**/*.ts",
+    "app/**/*.ts",
     "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ]

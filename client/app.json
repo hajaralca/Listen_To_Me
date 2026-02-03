@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ListenToMe",
-    "slug": "listentome",
+    "name": "Listen To Me",
+    "slug": "listen-to-me",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "listen-to-me",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -13,20 +13,16 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "plugins": [
-      [
-        "@react-native-firebase/app",
-        {
-        "androidPackageId": "com.sawoty.listentome",
-        "iosBundleId": "com.sawoty.listentome"
-        }
-      ],
-      "@react-native-firebase/auth"
+      "expo-router"
     ],
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#ffffff"
       },
       "package": "com.sawoty.listentome",
       "googleServicesFile": "./google-services.json" 
@@ -36,10 +32,12 @@
       "supportsTablet": true
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
     },
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "tsconfigPaths": true
     },
     "extra": {
       "eas": {
