@@ -1,0 +1,27 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@hooks/*": ["./hooks/*"],
+      "@lib/*": ["./lib/*"]
+    },
+    "skipLibCheck": true,
+    "types": [
+      "@react-navigation/native",
+      "@react-navigation/stack"
+    ]
+  },
+  "include": [
+    "hooks/**/*.ts",
+    "lib/**/*.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}

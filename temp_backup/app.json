@@ -1,49 +1,45 @@
 {
   "expo": {
-    "name": "Listen To Me",
-    "slug": "listen-to-me",
+    "name": "ListenToMe",
+    "slug": "listentome",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "listen-to-me",
+    "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "plugins": [
-      "expo-router"
+    "plugins": 
+    [
+      [
+        "@react-native-firebase/app",
+        {
+        "androidPackageId": "com.sawoty.listentome",
+        "iosBundleId": "com.sawoty.listentome"
+        }
+      ],
+      "@react-native-firebase/auth"
     ],
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFFFF"
       },
-      "package": "com.sawoty.listentome",
-      "googleServicesFile": "./google-services.json" 
+      "package": "com.sawoty.listentome"
     },
     "ios": {
       "bundleIdentifier": "com.sawoty.listentome",
       "supportsTablet": true
     },
     "web": {
-      "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
     },
     "experiments": {
-      "typedRoutes": true,
-      "tsconfigPaths": true
-    },
-    "extra": {
-      "eas": {
-        "projectId": "93d265ae-572b-4dcb-b050-7827add7dcd2"
-      }
-    },
-    "owner": "hajaralca"
+      "typedRoutes": true
+    }
   }
 }

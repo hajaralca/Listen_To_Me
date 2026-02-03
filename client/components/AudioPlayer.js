@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import { View, Slider, Text } from 'react-native';
 import { Audio } from 'expo-av';
+import { useEffect, useState } from 'react';
 
 export default function AudioPlayer({ audioUrl }) {
   const [sound, setSound] = useState();
@@ -8,43 +8,37 @@ export default function AudioPlayer({ audioUrl }) {
   const [duration, setDuration] = useState(0);
 
   useEffect(() => {
-    const loadSound = async () => {
+    let mounted = true;
+    const load = async () => {
       const { sound } = await Audio.Sound.createAsync(
         { uri: audioUrl },
-        { shouldPlay: false }
+        { shouldPlay: false },
+        status => {
+          if (mounted) {
+            setPosition(status.positionMillis);
+            setDuration(status.durationMillis);
+          }
+        }
       );
       setSound(sound);
-      sound.setOnPlaybackStatusUpdate(updateStatus);
     };
-
-    const updateStatus = (status) => {
-      setPosition(status.positionMillis);
-      setDuration(status.durationMillis);
+    load();
+    return () => {
+      mounted = false;
+      sound?.unloadAsync();
     };
-
-    loadSound();
-    return () => sound?.unloadAsync();
   }, [audioUrl]);
 
   return (
     <View>
       <Slider
         value={position}
-        minimumValue={0}
         maximumValue={duration}
-        onSlidingComplete={async (value) => {
-          await sound.setPositionAsync(value);
-        }}
+        onSlidingComplete={value => sound?.setPositionAsync(value)}
       />
       <Text>
-        {formatTime(position)} / {formatTime(duration)}
+        {Math.floor(position / 1000)}s / {Math.floor(duration / 1000)}s
       </Text>
     </View>
   );
-}
-
-function formatTime(ms) {
-  const minutes = Math.floor(ms / 60000);
-  const seconds = ((ms % 60000) / 1000).toFixed(0);
-  return `${minutes}:${seconds.padStart(2, '0')}`;
 }
