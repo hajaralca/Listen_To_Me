@@ -19,9 +19,21 @@ export default function ListenerLayout() {
       }}
     >
       <Stack.Screen
+        name="index"
+        options={{
+          title: 'Listener',
+        }}
+      />
+      <Stack.Screen
         name="home"
         options={{
-          title: 'Available Books',
+          title: 'Arabic Books',
+        }}
+      />
+      <Stack.Screen
+        name="english"
+        options={{
+          title: 'English Books',
         }}
       />
       <Stack.Screen
