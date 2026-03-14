@@ -6,27 +6,25 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const PINK = '#E91E63';
 const AZUL = '#2196F3';
 
-export default function HomeScreen() {
+export default function ListenerMenu() {
   return (
     <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <View style={styles.content}>
-        <Text style={styles.title}>Listen To Me</Text>
-        <Text style={styles.subtitle}>Choose how you want to use the app</Text>
+        <Text style={styles.title}>Listener</Text>
+        <Text style={styles.subtitle}>Choose a library</Text>
 
-        <Link href="/listener" asChild>
+        <Link href="/listener/home" asChild>
           <TouchableOpacity activeOpacity={0.85} accessibilityRole="button">
-            <View style={[styles.button, styles.listenerBg]}>
-              <Text style={styles.buttonText}>Listener</Text>
-              <Text style={styles.buttonHint}>Browse and play audiobooks</Text>
+            <View style={[styles.button, styles.arabicBg]}>
+              <Text style={styles.buttonText}>Arabic Books</Text>
             </View>
           </TouchableOpacity>
         </Link>
 
-        <Link href="/volunteer/sign-in" asChild>
+        <Link href="/listener/english" asChild>
           <TouchableOpacity activeOpacity={0.85} accessibilityRole="button">
-            <View style={[styles.button, styles.volunteerBg]}>
-              <Text style={styles.buttonText}>Volunteer</Text>
-              <Text style={styles.buttonHint}>Record chapters for others</Text>
+            <View style={[styles.button, styles.englishBg]}>
+              <Text style={styles.buttonText}>English Books</Text>
             </View>
           </TouchableOpacity>
         </Link>
@@ -47,16 +45,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   title: {
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: '700',
     color: '#1A1A2E',
     marginBottom: 8,
-    letterSpacing: 0.3,
   },
   subtitle: {
     fontSize: 15,
     color: '#6B7280',
-    marginBottom: 40,
+    marginBottom: 32,
   },
   button: {
     width: '100%',
@@ -77,10 +74,10 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  listenerBg: {
+  arabicBg: {
     backgroundColor: PINK,
   },
-  volunteerBg: {
+  englishBg: {
     backgroundColor: AZUL,
   },
   buttonText: {
@@ -89,10 +86,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
-  buttonHint: {
-    color: 'rgba(255,255,255,0.9)',
-    fontSize: 13,
-    marginTop: 4,
-    textAlign: 'center',
-  },
-}); 
+});
+
